@@ -38,6 +38,12 @@ function buildInventoryList(jsonlist) {
       var listItemDate = $('#itemsize', listItem);
       listItemDate.text(item.size);
 
+      // setting data
+      var listItemWeb = $('#purchaseBtn', listItem);
+      listItemWeb.attr("itemid", item.id);
+      listItemWeb.attr("itemname", item.name);
+      listItemWeb.attr("itemprice", item.price);
+
       if (index === 0) {
          $(itemListWrapperId).html(listItem);
       } else {
@@ -87,3 +93,25 @@ function getInventory() {
       });
 }
 getInventory();
+
+function showModal(element) {
+   var itemid = element.getAttribute("itemid");
+   var itemName = element.getAttribute("itemname");
+   var itemPrice = element.getAttribute("itemprice");
+
+   if (itemid) {
+      $('#purchaseItemId').val('Item# ' + itemid);
+      $('#purchaseItemName').text(itemName);
+      $('#purchaseItemPrice').val(itemPrice);
+      $('#purchaseItemImage').attr("src", 'https://s3.amazonaws.com/com.shawartsfl/inventory/' + itemid + '.jpg');
+   }
+   $('#purchaseModal').modal('show'); 
+}
+
+
+
+
+
+
+
+
