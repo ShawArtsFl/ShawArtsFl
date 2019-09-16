@@ -1,54 +1,78 @@
 <div id="content" class="py-3 py-lg-6">
    <div class="container">
       <div class="row">
+
+         <!-- Products sidebar -->
+         <div class="col-lg-3 order-lg-1">
+            <!-- Sections Menu-->
+            <ul class="nav nav-section-menu mb-4 py-3">
+               <li class="nav-header text-primary">Select to Filter Collection</li>
+               <li>
+                  <a id="bowl" onclick="filterCategory('bowl')" class="nav-link text-uppercase text-slab first">
+                     Bowls
+                  </a>
+               </li>
+               <li>
+                  <a id="cup" onclick="filterCategory('cup')" class="nav-link text-uppercase text-slab">
+                     Cups/Chalices
+                  </a>
+               </li>
+               <li>
+                  <a id="vase" onclick="filterCategory('vase')" class="nav-link text-uppercase text-slab">
+                     Vases
+                  </a>
+               </li>
+               <li>
+                  <a id="candlestick" onclick="filterCategory('candlestick')" class="nav-link text-uppercase text-slab">
+                     Candlestick Holders
+                  </a>
+               </li>
+               <li>
+                  <a id="jar" onclick="filterCategory('jar')" class="nav-link text-uppercase text-slab">
+                     Jars/Containers
+                  </a>
+               </li>
+               <li>
+                  <a id="vph" onclick="filterCategory('vph')" class="nav-link text-uppercase text-slab">
+                     Vape Pen Holders
+                  </a>
+               </li>
+               <li>
+                  <a id="pestle" onclick="filterCategory('pestle')" class="nav-link text-uppercase text-slab">
+                     Pestle & Mortar Sets
+                  </a>
+               </li>
+               <li>
+                  <a id="napkin" onclick="filterCategory('napkin')" class="nav-link text-uppercase text-slab">
+                     Napkin Holders
+                  </a>
+               </li>
+               <li>
+                  <a id="clear" onclick="filterCategory('clear')" class="nav-link text-slab">
+                     <small>Clear Filters</small>
+                  </a>
+               </li>
+            </ul>
+         </div>
+
          <!-- Products grid -->
          <div class="col-lg-9 order-lg-2">
-            <!-- Products filters -->
-            <div class="row">
-               <div class="col-lg-6 mb-3 mb-lg-0">
-                  <form class="form-inline justify-content-lg-start text-sm">
-                     <label class="control-label mr-2">Keyword:</label>
-                     <input type="text" class="form-control form-control-sm mr-lg-2" placeholder="ie. Bowls">
-                  </form>
-               </div>
+            <div class="row" id="inventoryListWrapper">
+               <!-- template content will be here -->
             </div>
-            <hr class="my-4" />
-            <div class="row">
-               <div class="col-lg-4">
-                  <!-- Product 2 -->
-                  <div class="card mb-4 product-card overlay-hover">
-                     <!-- Hover content -->
-                     <div class="overlay-hover-content overlay-op-7">
-                        <a href="shop-cart.html" class="btn btn-primary btn-block text-uppercase font-weight-bold mb-3 btn-lg"><i class="fa fa-cart-plus mr-2"></i>
-                           Add to Cart</a>
-                        <a href="shop-product.html" class="text-white text-sm">View Product Details</a>
-                        <a href="#" class="text-white text-sm">Add to Wishlist</a>
-                     </div>
-                     <!-- Image & price content -->
-                     <div class="pos-relative">
-                        <img class="card-img-top img-fluid" src="assets/img/shop/shoes-2.jpg" alt="Card image cap">
-                        <span class="badge badge-primary product-price-badge pos-absolute pos-t pos-r mt-2 mr-2 persist">$49.99</span>
-                     </div>
-                     <!-- Content -->
-                     <div class="card-body">
-                        <small class="text-muted text-uppercase"><span class="text-primary">Womens</span> / shoes</small>
-                        <h4 class="card-title">
-                    Shoes
-                  </h4>
-                        <p class="card-text"> <i class="fa fa-star text-primary"></i> <i class="fa fa-star text-primary"></i>
-                           <i class="fa fa-star text-primary"></i> <i class="fa fa-star text-primary"></i>
-                           <i class="fa fa-star-o text-primary"></i> </p>
-                     </div>
-                     <div class="card-footer">
-                        <small class="text-muted">129 in stock</small>
-                     </div>
-                  </div>
-               </div>
 
+            <div class="p-3 overlay overlay-op-5 rounded flex-valign mb-4" data-bg-img="{{'assets/img/sa-banner-1.jpg' | absolute_url }}"
+               data-css='{"background-position":"center bottom"}'>
+               <h4 class="text-white mb-0">Free Shipping</h4>
+                  <p class="text-white mb-0">On all orders over $100</p>
+               <hr class="hr-lg my-2 w-20 mx-auto hr-primary" />
             </div>
+            <!-- TODO: add sold flag -->
+            <!-- TODO: add nav bar "Custom Orders?" contact form -->
+            <!-- TODO: fix pictures on mobile -->
 
             <!-- Pagination -->
-            <nav aria-label="Page navigation">
+            <!-- <nav aria-label="Page navigation">
                <ul class="pagination pagination-lg justify-content-center">
                   <li class="page-item">
                      <a class="page-link" href="#" aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
@@ -64,38 +88,40 @@
                         <span class="sr-only">Next</span> </a>
                   </li>
                </ul>
-            </nav>
+            </nav> -->
          </div>
-         <!-- Products sidebar -->
-         <div class="col-lg-3 order-lg-1">
 
-            <!-- Sections Menu-->
-            <ul class="nav nav-section-menu mb-4 py-3">
-               <li class="nav-header">Collections</li>
-               <li>
-                  <a href="#mens" data-toggle="collapse" class="nav-link text-uppercase text-slab first active">
-                     Bowls
-                     <small class="d-inline-block text-xs text-lowercase">(active)</small>
-                     <i class="fa fa-angle-right"></i>
-                  </a>
-               </li>
-               <li>
-                  <a href="#mens" data-toggle="collapse" class="nav-link text-uppercase text-slab first">
-                     Cups
-                     <i class="fa fa-angle-right"></i>
-                  </a>
-               </li>
-            </ul>
-            <div class="p-3 overlay overlay-op-5 rounded flex-valign mb-4" data-bg-img="assets/img/shop/promo-truck.jpg"
-               data-css='{"background-position":"center bottom"}' data-url="shop-product.html">
-               <h4 class="text-white mb-0">
-              Free Shipping
-            </h4>
-               <p class="text-white mb-0">On all orders over $100</p>
-               <hr class="hr-lg my-2 w-20 mx-auto hr-primary" />
+      </div>
+   </div>
+
+   <div id="inventoryItem" hidden>
+      <!-- item -->
+      <div class="col-sm-6 col-lg-4">
+         <div class="card mb-4 product-card overlay-hover">
+            <!-- Hover content -->
+            <div class="overlay-hover-content overlay-op-7">
+               <a href="#" class="btn btn-primary btn-block text-uppercase font-weight-bold mb-3 btn-lg"><i class="fa fa-cart-plus mr-2"></i>
+                  Purchase</a>
             </div>
-
+            <!-- Image & price content -->
+            <div class="pos-relative">
+               <img id="itemimg" class="card-img-top img-fluid" src="" alt="Card image cap">
+               <span id="itemprice" class="badge badge-primary product-price-badge pos-absolute pos-t pos-r mt-2 mr-2 persist">Price</span>
+            </div>
+            <!-- Content -->
+            <div class="card-body">
+               <small class="text-muted text-uppercase"><span id="itemcat" class="text-primary">category</span></small>
+               <h4 class="card-title" id="name">Name</h4>
+               <small class="text-muted">The description of this item will go here as it should be short and sweet.</small>
+               <!-- id="itemdesc" -->
+            </div>
+            <div class="card-footer">
+               Size:
+               <small id="itemsize" class="text-muted">size</small>
+               <small id="itemid" class="text-muted float-right"></small>
+            </div>
          </div>
       </div>
    </div>
+
 </div>
