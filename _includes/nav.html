@@ -1,0 +1,45 @@
+<!-- ======== @Region: #header ======== -->
+<div id="header">
+   <!--Branding & Navigation Region-->
+   <div data-toggle="sticky">
+
+      <!--Header & Branding region-->
+      <div class="header">
+         <div class="header-inner container">
+            <!--branding/logo -->
+            <div class="header-brand d-inline-flex">
+               <a class="header-brand-text" href="/" title="Home">
+                  <img src="{{'/assets/img/shawartslogo.jpg' | absolute_url }}" class="d-none d-sm-inline icon-1x icon-svg float-left"
+                     alt="Shaw Arts FL">
+                  <img src="{{'/assets/img/shawartslogo-sm.jpg' | absolute_url }}" class="icon-1x icon-svg float-left d-sm-none"
+                     alt="Shaw Arts FL">
+                  <h1 class="h2 float-right d-none d-sm-inline">Shaw Arts</h1>
+               </a>
+               <div class="header-divider"></div>
+               <div class="header-slogan pl-xs-1">Florida</div>
+            </div>
+
+            <!-- mobile collapse menu button - data-toggle="collapse" = default BS menu - data-toggle="off-canvas" = Off-cavnas Menu - data-toggle="overlay" = Overlay Menu -->
+            <a href="#top" class="btn btn-link btn-icon header-btn float-right d-lg-none"
+               data-toggle="off-canvas" data-target=".navbar-main" data-settings='{"cloneTarget":true, "targetClassExtras": "navbar-offcanvas"}'>
+               <i class="fa fa-bars"></i> </a>
+
+         </div>
+      </div>
+   </div>
+
+   <div class="navbar navbar-expand-md">
+      <!--everything within this div is collapsed on mobile-->
+      <div class="navbar-main collapse bg-grey-dark navbar-dark">
+         <div class="container clearfix">
+            <!--main navigation-->
+            <ul class="nav navbar-nav float-lg-left navbar-nav-flush dropdown-effect-fadeup">
+               <li class="nav-item"> <a href="/" class="nav-link">Home</a> </li>
+               <li class="nav-item"> <a href="/shop" class="nav-link">Shop</a> </li>
+               <li class="nav-item"> <a href="/events" class="nav-link">Events</a> </li>
+            </ul>
+         </div>
+      </div>
+      <!--/.navbar-collapse -->
+   </div>
+</div>

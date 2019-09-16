@@ -1,0 +1,199 @@
+---
+layout: view
+title: "Shaw Arts Shop"
+date: 2019-09-15 11:00:00 -0400
+permalink: /shop
+shop: true
+---
+
+<!-- TODO: reduce and make images consistent size -->
+
+<div id="content" class="py-3 py-lg-6">
+   <div class="container">
+      <div class="row">
+
+         <!-- Products sidebar -->
+         <div class="col-lg-3 order-lg-1">
+            <!-- Sections Menu-->
+            <ul class="nav nav-section-menu mb-4 py-3">
+               <li class="nav-header text-primary">Select to Filter Collection</li>
+               <li>
+                  <a id="bowl" onclick="filterCategory('bowl')" class="nav-link text-uppercase text-slab first">
+                     Bowls
+                  </a>
+               </li>
+               <li>
+                  <a id="cup" onclick="filterCategory('cup')" class="nav-link text-uppercase text-slab">
+                     Cups/Chalices
+                  </a>
+               </li>
+               <li>
+                  <a id="vase" onclick="filterCategory('vase')" class="nav-link text-uppercase text-slab">
+                     Vases
+                  </a>
+               </li>
+               <li>
+                  <a id="candlestick" onclick="filterCategory('candlestick')" class="nav-link text-uppercase text-slab">
+                     Candlestick Holders
+                  </a>
+               </li>
+               <li>
+                  <a id="jar" onclick="filterCategory('jar')" class="nav-link text-uppercase text-slab">
+                     Jars/Containers
+                  </a>
+               </li>
+               <li>
+                  <a id="vph" onclick="filterCategory('vph')" class="nav-link text-uppercase text-slab">
+                     Vape Pen Holders
+                  </a>
+               </li>
+               <li>
+                  <a id="pestle" onclick="filterCategory('pestle')" class="nav-link text-uppercase text-slab">
+                     Pestle & Mortar Sets
+                  </a>
+               </li>
+               <li>
+                  <a id="napkin" onclick="filterCategory('napkin')" class="nav-link text-uppercase text-slab">
+                     Napkin Holders
+                  </a>
+               </li>
+               <li>
+                  <a id="clear" onclick="filterCategory('clear')" class="nav-link text-slab">
+                     <small>Clear Filters</small>
+                  </a>
+               </li>
+            </ul>
+         </div>
+
+         <!-- Products grid -->
+         <div class="col-lg-9 order-lg-2">
+            <div class="row" id="inventoryListWrapper">
+               <!-- template content will be here -->
+            </div>
+
+            <div class="p-3 overlay overlay-op-5 rounded flex-valign mb-4" data-bg-img="{{'assets/img/sa-banner-1.jpg' | absolute_url }}"
+               data-css='{"background-position":"center bottom"}'>
+               <h4 class="text-white mb-0">Free Shipping</h4>
+               <p class="text-white mb-0">On all orders over $100</p>
+               <hr class="hr-lg my-2 w-20 mx-auto hr-primary" />
+            </div>
+
+            <!-- Pagination -->
+            <!-- <nav aria-label="Page navigation">
+               <ul class="pagination pagination-lg justify-content-center">
+                  <li class="page-item">
+                     <a class="page-link" href="#" aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">Previous</span> </a>
+                  </li>
+                  <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item"><a class="page-link" href="#">4</a></li>
+                  <li class="page-item"><a class="page-link" href="#">5</a></li>
+                  <li class="page-item">
+                     <a class="page-link" href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Next</span> </a>
+                  </li>
+               </ul>
+            </nav> -->
+         </div>
+
+      </div>
+   </div>
+
+   <div id="inventoryItem" hidden>
+      <!-- item -->
+      <div class="col-sm-6 col-lg-4">
+         <div class="card mb-4 product-card overlay-hover">
+            <!-- Hover content -->
+            <div id="hoverContent" class="overlay-hover-content overlay-op-7">
+               <a id="purchaseBtn" onclick="showModal(this)" class="btn btn-primary btn-block text-uppercase font-weight-bold mb-3 btn-lg"><i class="fa fa-cart-plus mr-2"></i>
+                  Purchase</a>
+            </div>
+            <div id="soldout" hidden class="card-ribbon card-ribbon-top card-ribbon-left bg-danger text-white">Sold out</div>
+            <!-- Image & price content -->
+            <div class="pos-relative">
+               <img id="itemimg" class="card-img-top img-fluid" src="" alt="Item Image">
+               <span id="itemprice" class="badge badge-primary product-price-badge pos-absolute pos-t pos-r mt-2 mr-2 persist">Price</span>
+            </div>
+            <!-- Content -->
+            <div class="card-body">
+               <small class="text-muted text-uppercase"><span id="itemcat" class="text-primary">category</span></small>
+               <h4 class="card-title" id="name">Name</h4>
+               <small id="foodSafe" hidden class="text-success">Food Safe</small><br/>
+               <small class="text-muted">The description of this item will go here as it should be short and sweet.</small>
+               <!-- id="itemdesc" -->
+            </div>
+            <div class="card-footer">
+               Size:
+               <small id="itemsize" class="text-muted">size</small>
+               <small id="itemid" class="text-muted float-right"></small>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <!-- Modal -->
+   <div class="modal fade" id="purchaseModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+         <div class="modal-content">
+            <div class="modal-header">
+               <h5 class="modal-title" id="purchaseItemName">Order Item</h5>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+               </button>
+            </div>
+            <div class="modal-body">
+               <img id="purchaseItemImage" class="card-img-top img-fluid" src="" alt="Item Image">
+               <form id="purchaseForm" accept-charset="utf-8" action="https://formspree.io/shawartsfl@gmail.com"
+                  method="post" data-animate="fadeIn" data-animate-delay="0.4">
+                  <div class="form-group">
+                     <label class="sr-only" for="purchaseItemId">Item</label>
+                     <input readonly type="text" class="form-control" id="purchaseItemId"
+                        placeholder="Item Id" required="">
+                     <hr class="hr-inverse mx-auto mt-1 mb-0" />
+                  </div>
+                  <div class="form-group">
+                     <label class="sr-only" for="purchaseItemPrice">Price</label>
+                     <input readonly type="text" class="form-control" id="purchaseItemPrice"
+                        placeholder="Item Price" required="">
+                     <hr class="hr-inverse mx-auto mt-1 mb-0" />
+                  </div>
+                  <div class="form-group">
+                     <label class="sr-only" for="purchase-name">Full Name</label>
+                     <input type="text" class="form-control" id="purchase-name" placeholder="Full Name"
+                        required="">
+                     <hr class="hr-inverse mx-auto mt-1 mb-0" />
+                  </div>
+                  <div class="form-group">
+                     <label class="sr-only" for="purchase-email">Email</label>
+                     <input type="email" name="_replyto" class="form-control" id="purchase-email"
+                        placeholder="Email" required="">
+                     <hr class="hr-inverse mx-auto mt-1 mb-0" />
+                  </div>
+                  <div class="form-group">
+                     <label class="sr-only" for="purchase-phone">Phone</label>
+                     <input type="text" class="form-control" id="purchase-phone" placeholder="Phone"
+                        required="">
+                     <hr class="hr-inverse mx-auto mt-1 mb-0" />
+                  </div>
+                  <div class="form-group">
+                     <label class="sr-only" for="purchase-message">Message</label>
+                     <textarea rows="5" class="form-control" name="message" id="purchase-message"
+                        placeholder="Message (Optional)"></textarea>
+                     <input type="hidden" name="_subject" id="email-subject" value="Purchase Form Submission">
+                     <input type="hidden" name="_next" value="/" />
+                     <input type="text" name="_gotcha" style="display:none" />
+                     <hr class="hr-inverse mx-auto mt-1 mb-0" />
+                  </div>
+                  <input type="submit" class="btn btn-dark btn-lg" value="Submit Order">
+                  <br />
+                  <small>You will be contacted shortly through email or phone for billing details</small>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
+
+</div>
