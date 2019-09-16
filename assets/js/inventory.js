@@ -17,8 +17,8 @@ function buildInventoryList(jsonlist) {
    function buildListItem(item, index) {
       var listItem = $(template);
 
-      var listItemTitle = $('#itemid', listItem);
-      listItemTitle.text('#' + item.id);
+      var listItemId = $('#itemid', listItem);
+      listItemId.text('#' + item.id);
 
       var listItemTitle = $('#name', listItem);
       listItemTitle.text(item.name);
@@ -37,6 +37,21 @@ function buildInventoryList(jsonlist) {
 
       var listItemDate = $('#itemsize', listItem);
       listItemDate.text(item.size);
+
+      if (item.foodsafe === 'yes') {
+         var foodsafe = $('#foodSafe', listItem);
+         foodsafe.removeAttr('hidden');
+      }
+
+      if (item.status === 'sold' || item.status === 'gift') {
+         var listItemSo = $('#soldout', listItem);
+         listItemSo.removeAttr('hidden');
+
+         // prevents purchase button from showing
+         var listItemHover = $('#hoverContent', listItem);
+         listItemHover.attr('hidden', "");
+      }
+      
 
       // setting data
       var listItemWeb = $('#purchaseBtn', listItem);
