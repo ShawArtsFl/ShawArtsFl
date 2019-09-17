@@ -29,6 +29,9 @@ function buildInventoryList(jsonlist) {
       var listItemAddr = $('#itemprice', listItem);
       listItemAddr.text(item.price);
 
+      var listItemfinish = $('#itemfinish', listItem);
+      listItemfinish.text('Finish: ' + item.finish);
+
       var listItemWeb = $('#itemimg', listItem);
       listItemWeb.attr("src", 'https://s3.amazonaws.com/com.shawartsfl/inventory/' + item.id + '.jpg');
 

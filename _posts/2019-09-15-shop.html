@@ -6,8 +6,6 @@ permalink: /shop
 shop: true
 ---
 
-<!-- TODO: reduce and make images consistent size -->
-
 <div id="content" class="py-3 py-lg-6">
    <div class="container">
       <div class="row">
@@ -15,7 +13,7 @@ shop: true
          <!-- Products sidebar -->
          <div class="col-lg-3 order-lg-1">
             <!-- Sections Menu-->
-            <ul class="nav nav-section-menu mb-4 py-3">
+            <ul class="nav nav-section-menu pt-3 mb-2 pb-0">
                <li class="nav-header text-primary">Select to Filter Collection</li>
                <li>
                   <a id="bowl" onclick="filterCategory('bowl')" class="nav-link first">
@@ -60,6 +58,27 @@ shop: true
                <li>
                   <a id="clear" onclick="filterCategory('clear')" class="nav-link">
                      <small>Clear Filters</small>
+                  </a>
+               </li>
+            </ul>
+            <ul class="nav nav-section-menu mb-2 py-3">
+               <li>
+                  <a class="nav-link">
+                     <small><strong>NPS:</strong><br/>
+                     N = Natural stain coat, usually Minwax brand, which is a clear grain sealant, it usually darkens the natural color slightly.<br/>
+                     P = Polyurethane<br/>
+                     S = Satin sheen as opposed to gloss, or semi-gloss, or flat
+                     </small>
+                  </a>
+               </li>
+               <li>
+                  <a class="nav-link">
+                     <small><strong>L</strong> = Laquer finish</small>
+                  </a>
+               </li>
+               <li>
+                  <a class="nav-link">
+                     <small><strong>Mineral Oil</strong> = Beeswax and foodsafe oils</small>
                   </a>
                </li>
             </ul>
@@ -117,7 +136,8 @@ shop: true
                <small class="text-muted text-uppercase"><span id="itemcat" class="text-primary">category</span></small>
                <h4 class="card-title" id="name">Name</h4>
                <small id="foodSafe" hidden class="text-success"><i class="fa fa-utensils mr-2"></i> Food Safe <br /></small>
-               <small class="text-muted">The description of this item will go here as it should be short and sweet.</small>
+               <small id="itemfinish" class="text-muted">Finish <br /></small>
+               <small id="itemdesc" class="text-muted"></small>
                <a id="purchaseBtn" onclick="showModal(this)" class="btn btn-primary btn-block text-uppercase text-light font-weight-bold mt-2 btn-lg"><i class="fa fa-cart-plus mr-2"></i>Purchase</a>
             </div>
             <div class="card-footer">
