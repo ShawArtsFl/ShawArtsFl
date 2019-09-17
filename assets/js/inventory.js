@@ -48,7 +48,7 @@ function buildInventoryList(jsonlist) {
          listItemSo.removeAttr('hidden');
 
          // prevents purchase button from showing
-         var listItemHover = $('#hoverContent', listItem);
+         var listItemHover = $('#purchaseBtn', listItem);
          listItemHover.attr('hidden', "");
       }
       

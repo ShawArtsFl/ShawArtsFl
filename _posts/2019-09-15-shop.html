@@ -7,8 +7,6 @@ shop: true
 ---
 
 <!-- TODO: reduce and make images consistent size -->
-<!-- TODO: Add purchase button on mobile views -->
-<!-- TODO: Reduce image scale for purchase screen on smaller views -->
 
 <div id="content" class="py-3 py-lg-6">
    <div class="container">
@@ -106,13 +104,9 @@ shop: true
    <div id="inventoryItem" hidden>
       <!-- item -->
       <div class="col-sm-6 col-lg-4">
-         <div class="card mb-4 product-card overlay-hover">
-            <!-- Hover content -->
-            <div id="hoverContent" class="overlay-hover-content overlay-op-7">
-               <a id="purchaseBtn" onclick="showModal(this)" class="btn btn-primary btn-block text-uppercase font-weight-bold mb-3 btn-lg"><i class="fa fa-cart-plus mr-2"></i>
-                  Purchase</a>
-            </div>
-            <div id="soldout" hidden class="card-ribbon card-ribbon-top card-ribbon-left bg-danger text-white">Sold out</div>
+         <div class="card mb-4 product-card">
+            <div id="soldout" hidden class="card-ribbon card-ribbon-top card-ribbon-left bg-danger text-white">Sold
+               out</div>
             <!-- Image & price content -->
             <div class="pos-relative">
                <img id="itemimg" class="card-img-top img-fluid" src="" alt="Item Image">
@@ -122,9 +116,9 @@ shop: true
             <div class="card-body">
                <small class="text-muted text-uppercase"><span id="itemcat" class="text-primary">category</span></small>
                <h4 class="card-title" id="name">Name</h4>
-               <small id="foodSafe" hidden class="text-success">Food Safe</small><br/>
+               <small id="foodSafe" hidden class="text-success"><i class="fa fa-utensils mr-2"></i> Food Safe <br /></small>
                <small class="text-muted">The description of this item will go here as it should be short and sweet.</small>
-               <!-- id="itemdesc" -->
+               <a id="purchaseBtn" onclick="showModal(this)" class="btn btn-primary btn-block text-uppercase text-light font-weight-bold mt-2 btn-lg"><i class="fa fa-cart-plus mr-2"></i>Purchase</a>
             </div>
             <div class="card-footer">
                Size:
@@ -162,8 +156,8 @@ shop: true
                   </div>
                   <div class="form-group">
                      <label class="sr-only" for="purchase-name">Full Name</label>
-                     <input type="text" class="form-control" name="name" id="purchase-name" placeholder="Full Name"
-                        required="">
+                     <input type="text" class="form-control" name="name" id="purchase-name"
+                        placeholder="Full Name" required="">
                   </div>
                   <div class="form-group">
                      <label class="sr-only" for="purchase-email">Email</label>
@@ -172,8 +166,8 @@ shop: true
                   </div>
                   <div class="form-group">
                      <label class="sr-only" for="purchase-phone">Phone</label>
-                     <input type="text" class="form-control" id="purchase-phone" name="phone" placeholder="Phone"
-                        required="">
+                     <input type="text" class="form-control" id="purchase-phone" name="phone"
+                        placeholder="Phone" required="">
                   </div>
                   <div class="form-group">
                      <label class="sr-only" for="purchase-message">Message</label>

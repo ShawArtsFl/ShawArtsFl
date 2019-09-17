@@ -144,6 +144,10 @@ html {
  *--------------------------------------------------
  */
 
+#purchaseItemImage {
+   max-width: 200px;
+}
+
 @font-face {
    font-family: 'EuclidFlexB';
    src: url('font/EuclidFlexB-Regular.otf');
