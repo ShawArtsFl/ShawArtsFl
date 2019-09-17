@@ -1,47 +1,30 @@
-/*/////////////////////////////////////////////////////////////////////
- // 
- // Custom theme code styles
- // Written by Themelize.me (http://themelize.me)
- // 
- // This is an empty starter template for overriding styles
- // set by Bootstrap & the theme
- // 
- // ----------------------------------------------------
- // 
- // Remove unused code for better performances
- // 
- // ----------------------------------------------------
- // 
- // $see - Usefuls tools online for editing
- // 1. http://charliepark.org/bootstrap_buttons/ - Button style generator
- // 2. http://www.colorzilla.com/gradient-editor/ - CSS3 gradient maker
- // 
- // $note
- // To ensure custom styles are picked up
- // wrap definitions in body tag
- // ie.
- // body .navbar-inner {
- //   background: #ff0000;
- // }
- // 
- /////////////////////////////////////////////////////////////////////*/
-
-/*******************************************************
- * Custom theme code styles
- * Written by Themelize.me (http://themelize.me)
- *
- * Includes the base variables & mixins needed for all
- * scss files
- *******************************************************/
-
 /*
  * --------------------------------------------------
  * 1. General Elements
  *--------------------------------------------------
  */
 
+body,
+html {
+   font-family: "EuclidFlexB", Arial, serif !important;
+}
+
+.text-font-slab,
+.text-slab {
+   font-family: "EuclidFlexB", Arial, serif !important;
+}
+
 #header {
    /* 1. Header wrapper */
+}
+
+#header .header {
+   padding-top: 0px;
+   padding-bottom: 0px;
+}
+
+.header-brand-text>img {
+   max-width: 54px !important;
 }
 
 #highlighted {
@@ -90,10 +73,11 @@
    /* Medium devices (768px and up). Mixin: media-breakpoint-up(md) */
    .header-brand-text img {
       margin-top: 2px;
-   }  
+   }
 }
 
 @media (min-width: 992px) {
+
    /* Large devices (992px and up). Mixin: media-breakpoint-up(lg) */
    #itemimg {
       max-width: 300px;
@@ -156,7 +140,76 @@
 
 /*
  * --------------------------------------------------
- * 4. Misc
- * Other stuff
+ * 4. Misc Other stuff
  *--------------------------------------------------
  */
+
+@font-face {
+   font-family: 'EuclidFlexB';
+   src: url('font/EuclidFlexB-Regular.otf');
+   font-weight: normal;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: 'EuclidFlexB';
+   src: url('font/EuclidFlexB-Bold.otf');
+   font-weight: bold;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: 'EuclidFlexB';
+   src: url('font/EuclidFlexB-Italic.otf');
+   font-weight: normal;
+   font-style: italic;
+}
+
+@font-face {
+   font-family: 'EuclidFlexB';
+   src: url('font/EuclidFlexB-BoldItalic.otf');
+   font-weight: bold;
+   font-style: italic;
+}
+
+@font-face {
+   font-family: 'EuclidFlexB';
+   src: url('font/EuclidFlexB-Ultralight.otf');
+   font-weight: 100;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: 'EuclidFlexB';
+   src: url('font/EuclidFlexB-UltralightItalic.otf');
+   font-weight: 100;
+   font-style: italic;
+}
+
+@font-face {
+   font-family: 'EuclidFlexB';
+   src: url('font/EuclidFlexB-Light.otf');
+   font-weight: 200;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: 'EuclidFlexB';
+   src: url('font/EuclidFlexB-LightItalic.otf');
+   font-weight: 200;
+   font-style: italic;
+}
+
+@font-face {
+   font-family: 'EuclidFlexB';
+   src: url('font/EuclidFlexB-Medium.otf');
+   font-weight: 500;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: 'EuclidFlexB';
+   src: url('font/EuclidFlexB-MediumItalic.otf');
+   font-weight: 500;
+   font-style: italic;
+}

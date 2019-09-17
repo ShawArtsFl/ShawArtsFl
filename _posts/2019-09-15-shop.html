@@ -7,6 +7,8 @@ shop: true
 ---
 
 <!-- TODO: reduce and make images consistent size -->
+<!-- TODO: Add purchase button on mobile views -->
+<!-- TODO: Reduce image scale for purchase screen on smaller views -->
 
 <div id="content" class="py-3 py-lg-6">
    <div class="container">
@@ -18,47 +20,47 @@ shop: true
             <ul class="nav nav-section-menu mb-4 py-3">
                <li class="nav-header text-primary">Select to Filter Collection</li>
                <li>
-                  <a id="bowl" onclick="filterCategory('bowl')" class="nav-link text-uppercase text-slab first">
+                  <a id="bowl" onclick="filterCategory('bowl')" class="nav-link first">
                      Bowls
                   </a>
                </li>
                <li>
-                  <a id="cup" onclick="filterCategory('cup')" class="nav-link text-uppercase text-slab">
+                  <a id="cup" onclick="filterCategory('cup')" class="nav-link">
                      Cups/Chalices
                   </a>
                </li>
                <li>
-                  <a id="vase" onclick="filterCategory('vase')" class="nav-link text-uppercase text-slab">
+                  <a id="vase" onclick="filterCategory('vase')" class="nav-link">
                      Vases
                   </a>
                </li>
                <li>
-                  <a id="candlestick" onclick="filterCategory('candlestick')" class="nav-link text-uppercase text-slab">
+                  <a id="candlestick" onclick="filterCategory('candlestick')" class="nav-link">
                      Candlestick Holders
                   </a>
                </li>
                <li>
-                  <a id="jar" onclick="filterCategory('jar')" class="nav-link text-uppercase text-slab">
+                  <a id="jar" onclick="filterCategory('jar')" class="nav-link">
                      Jars/Containers
                   </a>
                </li>
                <li>
-                  <a id="vph" onclick="filterCategory('vph')" class="nav-link text-uppercase text-slab">
+                  <a id="vph" onclick="filterCategory('vph')" class="nav-link">
                      Vape Pen Holders
                   </a>
                </li>
                <li>
-                  <a id="pestle" onclick="filterCategory('pestle')" class="nav-link text-uppercase text-slab">
+                  <a id="pestle" onclick="filterCategory('pestle')" class="nav-link">
                      Pestle & Mortar Sets
                   </a>
                </li>
                <li>
-                  <a id="napkin" onclick="filterCategory('napkin')" class="nav-link text-uppercase text-slab">
+                  <a id="napkin" onclick="filterCategory('napkin')" class="nav-link">
                      Napkin Holders
                   </a>
                </li>
                <li>
-                  <a id="clear" onclick="filterCategory('clear')" class="nav-link text-slab">
+                  <a id="clear" onclick="filterCategory('clear')" class="nav-link">
                      <small>Clear Filters</small>
                   </a>
                </li>
@@ -152,31 +154,26 @@ shop: true
                      <label class="sr-only" for="purchaseItemId">Item</label>
                      <input readonly type="text" class="form-control" name="item" id="purchaseItemId"
                         placeholder="Item Id" required="">
-                     <hr class="hr-inverse mx-auto mt-1 mb-0" />
                   </div>
                   <div class="form-group">
                      <label class="sr-only" for="purchaseItemPrice">Price</label>
                      <input readonly type="text" class="form-control" name="price" id="purchaseItemPrice"
                         placeholder="Item Price" required="">
-                     <hr class="hr-inverse mx-auto mt-1 mb-0" />
                   </div>
                   <div class="form-group">
                      <label class="sr-only" for="purchase-name">Full Name</label>
                      <input type="text" class="form-control" name="name" id="purchase-name" placeholder="Full Name"
                         required="">
-                     <hr class="hr-inverse mx-auto mt-1 mb-0" />
                   </div>
                   <div class="form-group">
                      <label class="sr-only" for="purchase-email">Email</label>
                      <input type="email" name="_replyto" name="email" class="form-control" id="purchase-email"
                         placeholder="Email" required="">
-                     <hr class="hr-inverse mx-auto mt-1 mb-0" />
                   </div>
                   <div class="form-group">
                      <label class="sr-only" for="purchase-phone">Phone</label>
                      <input type="text" class="form-control" id="purchase-phone" name="phone" placeholder="Phone"
                         required="">
-                     <hr class="hr-inverse mx-auto mt-1 mb-0" />
                   </div>
                   <div class="form-group">
                      <label class="sr-only" for="purchase-message">Message</label>
@@ -185,7 +182,6 @@ shop: true
                      <input type="hidden" name="_subject" id="email-subject" value="Purchase Form Submission">
                      <input type="hidden" name="_next" value="/" />
                      <input type="text" name="_gotcha" style="display:none" />
-                     <hr class="hr-inverse mx-auto mt-1 mb-0" />
                   </div>
                   <input type="submit" class="btn btn-dark btn-lg" value="Submit Order">
                   <br />
