@@ -161,45 +161,32 @@ shop: true
                </button>
             </div>
             <div class="modal-body">
+               <p>Please use PayPal to complete Billing and Shipping information</p>
+               <div id="paypal-button-container"></div>
                <img id="purchaseItemImage" class="card-img-top img-fluid" src="" alt="Item Image">
+               <h2 class="text-primary" id="afterPurchaseMsg"></h2>
                <form id="purchaseForm" accept-charset="utf-8" action="https://formspree.io/shawartsfl@gmail.com"
                   method="post" data-animate="fadeIn" data-animate-delay="0.4">
                   <div class="form-group">
-                     <label class="sr-only" for="purchaseItemId">Item</label>
+                     <label for="purchaseItemId">Item</label>
                      <input readonly type="text" class="form-control" name="item" id="purchaseItemId"
                         placeholder="Item Id" required="">
                   </div>
                   <div class="form-group">
-                     <label class="sr-only" for="purchaseItemPrice">Price</label>
+                     <label for="purchaseItemPrice">Price</label>
                      <input readonly type="text" class="form-control" name="price" id="purchaseItemPrice"
                         placeholder="Item Price" required="">
                   </div>
                   <div class="form-group">
-                     <label class="sr-only" for="purchase-name">Full Name</label>
-                     <input type="text" class="form-control" name="name" id="purchase-name"
-                        placeholder="Full Name" required="">
+                     <label for="shippingCost">Shipping</label>
+                     <input readonly type="text" class="form-control" name="shippingCost" id="shippingCost"
+                        placeholder="Shipping" required="">
                   </div>
                   <div class="form-group">
-                     <label class="sr-only" for="purchase-email">Email</label>
-                     <input type="email" name="_replyto" name="email" class="form-control" id="purchase-email"
-                        placeholder="Email" required="">
+                     <label for="totalCost">Total</label>
+                     <input readonly type="text" class="form-control" name="totalCost" id="totalCost"
+                        placeholder="Total" required="">
                   </div>
-                  <div class="form-group">
-                     <label class="sr-only" for="purchase-phone">Phone</label>
-                     <input type="text" class="form-control" id="purchase-phone" name="phone"
-                        placeholder="Phone" required="">
-                  </div>
-                  <div class="form-group">
-                     <label class="sr-only" for="purchase-message">Message</label>
-                     <textarea rows="5" class="form-control" name="message" id="purchase-message"
-                        placeholder="Message (Optional)"></textarea>
-                     <input type="hidden" name="_subject" id="email-subject" value="Purchase Form Submission">
-                     <input type="hidden" name="_next" value="/" />
-                     <input type="text" name="_gotcha" style="display:none" />
-                  </div>
-                  <input type="submit" class="btn btn-dark btn-lg" value="Submit Order">
-                  <br />
-                  <small>You will be contacted shortly through email or phone for billing details</small>
                </form>
             </div>
          </div>

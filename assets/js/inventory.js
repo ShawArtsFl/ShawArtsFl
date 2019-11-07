@@ -1,5 +1,6 @@
 var inventoryList;
 var currentFilter = "";
+var shipping = 7.99;
 
 function buildInventoryList(jsonlist) {
    var template = $("#inventoryItem").html();
@@ -54,7 +55,6 @@ function buildInventoryList(jsonlist) {
          var listItemHover = $('#purchaseBtn', listItem);
          listItemHover.attr('hidden', "");
       }
-      
 
       // setting data
       var listItemWeb = $('#purchaseBtn', listItem);
@@ -73,7 +73,7 @@ function buildInventoryList(jsonlist) {
 function filterCategory(categoryToFilter) {
    if (categoryToFilter !== currentFilter) {
       if (currentFilter != "") {
-      	//un-active current filter
+         //un-active current filter
          $('#' + currentFilter).removeClass('active');
       }
 
@@ -86,12 +86,12 @@ function filterCategory(categoryToFilter) {
          });
          buildInventoryList(filtered);
       } else {
-      	// clear filter
+         // clear filter
          currentFilter = '';
          buildInventoryList(inventoryList);
       }
    } else {
-   	// clear filter if same filter is clicked twice
+      // clear filter if same filter is clicked twice
       if (currentFilter != "") {
          $('#' + currentFilter).removeClass('active');
       }
@@ -113,6 +113,7 @@ function getInventory() {
 getInventory();
 
 function showModal(element) {
+
    var itemid = element.getAttribute("itemid");
    var itemName = element.getAttribute("itemname");
    var itemPrice = element.getAttribute("itemprice");
@@ -121,15 +122,53 @@ function showModal(element) {
       $('#purchaseItemId').val('Item# ' + itemid);
       $('#purchaseItemName').text(itemName);
       $('#purchaseItemPrice').val(itemPrice);
+      $('#shippingCost').val('$' + shipping);
       $('#purchaseItemImage').attr("src", 'https://s3.amazonaws.com/com.shawartsfl/inventory/' + itemid + '.jpg');
+
+      $('#paypal-button-container').empty();
+      $('#afterPurchaseMsg').empty();
+
+      var priceForPaypal = itemPrice.replace('$', '');
+      var total = shipping + (+priceForPaypal);
+      $('#totalCost').val('$' + total);
+      
+      //paypal
+      paypal.Buttons({
+         // Set up the transaction
+         createOrder: function(data, actions) {
+            return actions.order.create({
+               purchase_units: [{
+                  amount: {
+                     value: total + '',
+                     currency_code: 'USD',
+                     breakdown: {
+                        item_total: {
+                           value: priceForPaypal,
+                           currency_code: 'USD'
+                        },
+                        shipping: {
+                           value: shipping,
+                           currency_code: 'USD'
+                        }
+                     }
+                  }
+               }]
+            });
+         },
+
+         // Finalize the transaction
+         onApprove: function(data, actions) {
+            return actions.order.capture().then(function(details) {
+               // after transaction completes
+               $('#paypal-button-container').empty();
+               $('#afterPurchaseMsg').text(
+                  "Thank you for your purchase.  Your item will be shipped within 1-2 business days."
+               );
+            });
+         }
+
+      }).render('#paypal-button-container');
    }
-   $('#purchaseModal').modal('show'); 
+
+   $('#purchaseModal').modal('show');
 }
-
-
-
-
-
-
-
-
