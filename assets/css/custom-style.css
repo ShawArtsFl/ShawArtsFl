@@ -29,6 +29,11 @@ html {
 
 #highlighted {
    /* 2. Highlighted (below header) wrapper */
+   min-height: 180px
+}
+
+#itemimg {
+   min-height: 150px
 }
 
 #content {
@@ -66,6 +71,10 @@ html {
       margin-top: -2px;
       margin-right: 5px;
    }
+
+   #highlighted {
+      min-height: 300px
+   }
 }
 
 @media (min-width: 768px) {
@@ -74,6 +83,10 @@ html {
    .header-brand-text img {
       margin-top: 2px;
    }
+
+   #highlighted {
+      min-height: 400px
+   }
 }
 
 @media (min-width: 992px) {
@@ -81,6 +94,10 @@ html {
    /* Large devices (992px and up). Mixin: media-breakpoint-up(lg) */
    #itemimg {
       max-width: 300px;
+   }
+
+   #highlighted {
+      min-height: 500px
    }
 }
 

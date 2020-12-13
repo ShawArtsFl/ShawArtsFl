@@ -6,16 +6,28 @@ function buildInventoryList(jsonlist) {
    var template = $("#inventoryItem").html();
    var itemListWrapperId = '#inventoryListWrapper';
    var items = jsonlist;
+   var soldOutItems = [];
+   var firstItemAddedToShopList = false;
 
    if (items && items.length > 0) {
       items.forEach(buildListItem);
+      soldOutItems.forEach(appendSoldOutItemsToList);
    } else {
       $(itemListWrapperId).removeClass();
       $(itemListWrapperId).html(
          '<div class=\"text-center\"><h4>No items available at this Time.  Check Back Soon!</h4></div>');
    }
 
+   function appendSoldOutItemsToList(soItem) {
+      if (!firstItemAddedToShopList) {
+         $(itemListWrapperId).html(soItem);
+      } else {
+         $(itemListWrapperId).append(soItem);
+      }
+   }
+
    function buildListItem(item, index) {
+
       var listItem = $(template);
 
       var listItemId = $('#itemid', listItem);
@@ -62,10 +74,16 @@ function buildInventoryList(jsonlist) {
       listItemWeb.attr("itemname", item.name);
       listItemWeb.attr("itemprice", item.price);
 
-      if (index === 0) {
-         $(itemListWrapperId).html(listItem);
+      if (item.status !== 'sold' && item.status !== 'gift') {
+         // a way to make sure our first item is added correctly to the page
+         if (!firstItemAddedToShopList) {
+            $(itemListWrapperId).html(listItem);
+            firstItemAddedToShopList = true;
+         } else {
+            $(itemListWrapperId).append(listItem);
+         }
       } else {
-         $(itemListWrapperId).append(listItem);
+         soldOutItems.push(listItem);
       }
    }
 }
@@ -129,9 +147,11 @@ function showModal(element) {
       $('#afterPurchaseMsg').empty();
 
       var priceForPaypal = itemPrice.replace('$', '');
-      var total = shipping + (+priceForPaypal);
+      var taxAmount = (priceForPaypal * .06).toFixed(2);
+      $('#tax').val('$' + taxAmount);
+      var total = (+taxAmount) + shipping + (+priceForPaypal);
       $('#totalCost').val('$' + total);
-      
+
       //paypal
       paypal.Buttons({
          // Set up the transaction
@@ -149,9 +169,26 @@ function showModal(element) {
                         shipping: {
                            value: shipping,
                            currency_code: 'USD'
-                        }
+                        },
+                        tax_total: {
+                           currency_code: 'USD',
+                           value: taxAmount
+                        },
                      }
-                  }
+                  },
+                  items: [{
+                     name: itemName,
+                     sku: itemid,
+                     unit_amount: {
+                        currency_code: "USD",
+                        value: priceForPaypal
+                     },
+                     tax: {
+                        currency_code: "USD",
+                        value: taxAmount
+                     },
+                     quantity: "1"
+                  }]
                }]
             });
          },
