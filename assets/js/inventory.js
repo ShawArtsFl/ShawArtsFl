@@ -147,7 +147,7 @@ function showModal(element) {
       $('#afterPurchaseMsg').empty();
 
       var priceForPaypal = itemPrice.replace('$', '');
-      var taxAmount = (priceForPaypal * .06).toFixed(2);
+      var taxAmount = (priceForPaypal * .07).toFixed(2);
       $('#tax').val('$' + taxAmount);
       var total = (+taxAmount) + shipping + (+priceForPaypal);
       $('#totalCost').val('$' + total);
